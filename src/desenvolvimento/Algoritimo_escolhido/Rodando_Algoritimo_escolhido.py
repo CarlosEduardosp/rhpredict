@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from src.desenvolvimento.model.model_pessoa import Pessoa
@@ -28,11 +28,11 @@ def rodar_Algoritimo_escolhido(pessoa: Type[Pessoa]) -> List:
         raise ValueError("O arquivo 'alvo.csv' deve conter apenas uma coluna")
 
     # treino do algoritimo
-    logistica = make_pipeline(
+    svc = make_pipeline(
         StandardScaler(),
-        LogisticRegression(random_state=1, max_iter=500, penalty="l2", tol=0.0001, C=5, solver="lbfgs")
+        SVC(kernel='rbf', random_state=1, C=2)
     )
-    logistica.fit(previsores, alvo)
+    svc.fit(previsores, alvo)
 
     # Exemplo de dados de entrada para previsão
     pessoa = np.array(pessoa.listar_atributos())
@@ -41,6 +41,6 @@ def rodar_Algoritimo_escolhido(pessoa: Type[Pessoa]) -> List:
     pessoa = pessoa.reshape(1, -1)
 
     # Fazendo a previsão
-    resultado = logistica.predict(pessoa)
+    resultado = svc.predict(pessoa)
 
     return resultado

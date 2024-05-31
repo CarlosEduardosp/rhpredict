@@ -20,22 +20,22 @@ df = pd.read_csv('../../dados_funcionarios.csv',
 #print(df.shape)
 
 # mostra quantidade de linhas e colunas
-print(df.shape)
+#print(df.shape)
 
 # mostra os tipos dos valores dentro de cada celula.
 #print(df.dtypes)
 
 # descobrir valores que aparecem pelo menos uma vez na coluna, parametro é o nome da coluna.
-valores_unicos = df['Gender'].unique()
-#print(valores_unicos)
+valores_unicos = df['PaymentTier'].unique()
+print(valores_unicos)
 
 # Transformando as variáveis categóricas nominais em variáveis categóricas ordinais
 # criando um dataframe
 df2 = pd.DataFrame.copy(df)
-print(df2.head(10))
+#print(df2.head(10))
 
 # excluindo a a coluna CITY, por não haver necessidade.
-df2.drop('City', axis=1, inplace=True)
+#df2.drop('City', axis=1, inplace=True)
 
 # tranformando as variaveis
 df2['Education'] = df2['Education'].replace({'Bachelors': int(0), 'Masters': int(1), 'PHD': int(2)}).astype(int)
@@ -70,25 +70,25 @@ previsores2_esc = conjunto de variáveis previsoras com as variáveis categóric
 previsores3 = conjunto de variáveis previsoras transformadas pelo labelencoder e onehotencoder, sem escalonar.
 previsores3_esc = conjunto de variáveis previsoras transformadas pelo labelencoder e onehotencoder escalonada.
 """
-print(f'Previsores: {previsores}')
+#print(f'Previsores: {previsores}')
 
 previsores_escalonado = Previsores_escalonado(previsores)
-print(f'Previsores escalonado: {previsores_escalonado}')
+#print(f'Previsores escalonado: {previsores_escalonado}')
 
 previsores2 = Previsores2(df=df)
-print(f'Previsores2: {previsores2}')
+#print(f'Previsores2: {previsores2}')
 
 previsores2_escalonado = Previsores_escalonado(previsores2)
-print(f"Previsores2_escalonado: {previsores2_escalonado}")
+#print(f"Previsores2_escalonado: {previsores2_escalonado}")
 
 previsores3 = Previsores3(previsores2)
 # visualizando com dataframeS
 previsores3df = pd.DataFrame(previsores3)
-print(f'Previsores3: {previsores3df}')
+#print(f'Previsores3: {previsores3df}')
 
 previsores3_escalonado = Previsores_escalonado(previsores3)
 previsores3_escdf = pd.DataFrame(previsores3_escalonado)
-print(f'Previsores3_escalonado: {previsores3_escdf}')
+#print(f'Previsores3_escalonado: {previsores3_escdf}')
 
 # reunindo todos os previsores em uma lista.
 todos_os_previsores = [
@@ -101,8 +101,8 @@ todos_os_previsores = [
 ]
 
 #salvando os arquivos no diretório designado.
-np.savetxt('../desenvolvimento/dados_csv/previsores.csv', previsores, delimiter=',')
-np.savetxt('../desenvolvimento/dados_csv/alvo.csv', alvo, delimiter=',')
+#np.savetxt('../desenvolvimento/dados_csv/previsores.csv', previsores, delimiter=',')
+#np.savetxt('../desenvolvimento/dados_csv/alvo.csv', alvo, delimiter=',')
 
 # testando e avaliando com naive bayes
 #chamarAlgoritimo(todos_os_previsores, alvo, codigo_algoritimo=1)

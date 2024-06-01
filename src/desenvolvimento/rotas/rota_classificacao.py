@@ -12,49 +12,29 @@ def Inserir_dados(pessoa: Item):
     :return: Inserir dados para análise.
     """
 
-    response = Validar_dados_entrada(nome=pessoa.nome,
+    response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
+                                     ano_de_adesao=pessoa.ano_de_adesao,
+                                     nivel_de_pagamento=pessoa.nivel_de_pagamento,
                                      idade=pessoa.idade,
                                      genero=pessoa.genero,
-                                     altura=pessoa.altura,
-                                     peso=pessoa.peso,
-                                     frequencia_alcool=pessoa.frequencia_alcool,
-                                     alimentos_alto_teor_calorico=pessoa.alimentos_alto_teor_calorico,
-                                     come_vegetais_nas_refeicoes=pessoa.come_vegetais_nas_refeicoes,
-                                     quantidade_refeicoes_dia=pessoa.quantidade_refeicoes_dia,
-                                     monitora_calorias_que_ingere=pessoa.monitora_calorias_que_ingere,
-                                     fuma=pessoa.fuma,
-                                     quantidade_agua_por_dia=pessoa.quantidade_agua_por_dia,
-                                     membro_familiar_com_sobre_peso=pessoa.membro_familiar_com_sobre_peso,
-                                     frequencia_atividade_fisica=pessoa.frequencia_atividade_fisica,
-                                     tempo_que_passa_dispositivos_tecnologicos=pessoa.tempo_que_passa_dispositivos_tecnologicos,
-                                     come_algo_entre_as_refeicoes=pessoa.come_algo_entre_as_refeicoes,
-                                     qual_transporte_costuma_usar=pessoa.qual_transporte_costuma_usar)
+                                     everbench=pessoa.everbench,
+                                     experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual)
 
     if response['success']:
 
 
         dados = Pessoa(
-            nome=pessoa.nome,
+            grau_de_instrucao=pessoa.grau_de_instrucao,
+            ano_de_adesao=pessoa.ano_de_adesao,
+            nivel_de_pagamento=pessoa.nivel_de_pagamento,
             idade=pessoa.idade,
             genero=pessoa.genero,
-            altura=pessoa.altura,
-            peso=pessoa.peso,
-            frequencia_alcool=pessoa.frequencia_alcool,
-            alimentos_alto_teor_calorico=pessoa.alimentos_alto_teor_calorico,
-            come_vegetais_nas_refeicoes=pessoa.come_vegetais_nas_refeicoes,
-            quantidade_refeicoes_dia=pessoa.quantidade_refeicoes_dia,
-            monitora_calorias_que_ingere=pessoa.monitora_calorias_que_ingere,
-            fuma=pessoa.fuma,
-            quantidade_agua_por_dia=pessoa.quantidade_agua_por_dia,
-            membro_familiar_com_sobre_peso=pessoa.membro_familiar_com_sobre_peso,
-            frequencia_atividade_fisica=pessoa.frequencia_atividade_fisica,
-            tempo_que_passa_dispositivos_tecnologicos=pessoa.tempo_que_passa_dispositivos_tecnologicos,
-            come_algo_entre_as_refeicoes=pessoa.come_algo_entre_as_refeicoes,
-            qual_transporte_costuma_usar=pessoa.qual_transporte_costuma_usar
+            everbench=pessoa.everbench,
+            experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual
         )
 
         resultado = rodar_Algoritimo_escolhido(dados)
 
-        return {"success": True, "message": f'Olá {dados.exibir_nome()}, {dados.exibir_resultado(resultado)}'}
+        return {"success": True, "message": f'Olá, {dados.exibir_resultado(resultado)}'}
 
     return response

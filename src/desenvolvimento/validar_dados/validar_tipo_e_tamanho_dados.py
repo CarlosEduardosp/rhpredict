@@ -14,7 +14,4 @@ def Validar_dados_entrada(
     if not isinstance(idade, int):
         return {"success": False, "data": "Idade deve ser um numero inteiro."}
 
-
-
-
     return {"success": True, "data": "Tudo Ok"}

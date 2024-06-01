@@ -12,10 +12,10 @@ def inicio():
 
     response = {
         "Success": 200,
-        "Message": "API para análise de peso de indivíduos através de machine learning.",
+        "Message": "API para análisar a permanência de uma pessoa em uma empresa, utilizando tecnicas de machine learning.",
         "Info": "Use /docs para acessar a documentação no Swagger ",
         "Dev": "Carlos Eduardo dos S. Padilha",
-        "Algoritimo Utilizado": "Regressão Logistica"
+        "Algoritimo Utilizado": "SVM - Maquina de Vetores de Suporte "
     }
 
     return response

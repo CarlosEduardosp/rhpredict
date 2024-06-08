@@ -1,4 +1,5 @@
 # Modelo Dockerfile FastAPI
+
 # Use a imagem oficial do Python
 FROM python:3.10
 

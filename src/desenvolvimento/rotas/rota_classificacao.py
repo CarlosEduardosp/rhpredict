@@ -6,7 +6,7 @@ from src.desenvolvimento.validar_dados.validar_tipo_e_tamanho_dados import Valid
 router = APIRouter()
 
 
-@router.get('/inserir_dados')
+@router.post('/inserir_dados')
 async def inserir_dados(pessoa: Item):
     """
     :return: Inserir dados para análise.

@@ -16,7 +16,7 @@ dados = {
 
 try:
     # Fazendo a requisição POST
-    response = requests.post(url, json=dados)
+    response = requests.get(url, json=dados)
     response.raise_for_status()  # Isso lançará um erro para códigos de status 4xx/5xx
 
     # Convertendo a resposta para JSON

@@ -11,13 +11,6 @@ async def inserir_dados(pessoa: Item):
     """
     :return: Inserir dados para análise.
     """
-    print(type(pessoa.experiencia_no_dominio_atual),
-          type(pessoa.ano_de_adesao),
-          type(pessoa.nivel_de_pagamento),
-          type(pessoa.idade),
-          type(pessoa.genero),
-          type(pessoa.everbench),
-          type(pessoa.experiencia_no_dominio_atual))
 
     response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
                                      ano_de_adesao=pessoa.ano_de_adesao,

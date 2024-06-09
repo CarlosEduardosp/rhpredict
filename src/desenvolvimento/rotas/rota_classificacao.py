@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.post('/inserir_dados')
-def Inserir_dados(pessoa: Item):
+def inserir_dados(pessoa: Item):
     """
     :return: Inserir dados para análise.
     """

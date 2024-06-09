@@ -19,13 +19,13 @@ async def inserir_dados(pessoa: Item):
           type(pessoa.everbench),
           type(pessoa.experiencia_no_dominio_atual))
 
-    """response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
+    response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
                                      ano_de_adesao=pessoa.ano_de_adesao,
                                      nivel_de_pagamento=pessoa.nivel_de_pagamento,
                                      idade=pessoa.idade,
                                      genero=pessoa.genero,
                                      everbench=pessoa.everbench,
-                                     experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual)"""
+                                     experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual)
 
 
     dados = Pessoa(

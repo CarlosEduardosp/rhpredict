@@ -7,7 +7,7 @@ router = APIRouter()
 
 
 @router.post('/inserir_dados')
-def inserir_dados(pessoa: Item):
+async def inserir_dados(pessoa: Item):
     """
     :return: Inserir dados para análise.
     """
@@ -19,29 +19,26 @@ def inserir_dados(pessoa: Item):
           type(pessoa.everbench),
           type(pessoa.experiencia_no_dominio_atual))
 
-
-    response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
+    """response = Validar_dados_entrada(grau_de_instrucao=pessoa.grau_de_instrucao,
                                      ano_de_adesao=pessoa.ano_de_adesao,
                                      nivel_de_pagamento=pessoa.nivel_de_pagamento,
                                      idade=pessoa.idade,
                                      genero=pessoa.genero,
                                      everbench=pessoa.everbench,
-                                     experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual)
+                                     experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual)"""
 
-    if response['success']:
 
-        dados = Pessoa(
-            grau_de_instrucao=pessoa.grau_de_instrucao,
-            ano_de_adesao=pessoa.ano_de_adesao,
-            nivel_de_pagamento=pessoa.nivel_de_pagamento,
-            idade=pessoa.idade,
-            genero=pessoa.genero,
-            everbench=pessoa.everbench,
-            experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual
+    dados = Pessoa(
+        grau_de_instrucao=pessoa.grau_de_instrucao,
+        ano_de_adesao=pessoa.ano_de_adesao,
+        nivel_de_pagamento=pessoa.nivel_de_pagamento,
+        idade=pessoa.idade,
+        genero=pessoa.genero,
+        everbench=pessoa.everbench,
+        experiencia_no_dominio_atual=pessoa.experiencia_no_dominio_atual
         )
 
-        resultado = rodar_Algoritimo_escolhido(dados)
+    resultado = rodar_Algoritimo_escolhido(dados)
 
-        return {"success": True, "message": f'Olá, {dados.exibir_resultado(resultado)}'}
+    return {"success": True, "message": f'Olá, {dados.exibir_resultado(resultado)}'}
 
-    return response
